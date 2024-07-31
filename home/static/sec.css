@@ -1,0 +1,23 @@
+body{
+    background-color: rgb(238, 161, 45);
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+.nav_left{
+    height: 50px;
+    width: 50%;
+    background-color: rgb(1,5,54);
+    display: flex;
+    color:aliceblue
+}
+.nav_right{
+    height: 50px;
+    width: 50%;
+    background-color: rgb(1,5,54);
+}
+img{
+    height: 50px;
+    width: 100px;
+}
