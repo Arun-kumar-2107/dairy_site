@@ -5,39 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
-    <!-- <link rel="stylesheet" href="{% static 'myscc.css'%}"> -->
-    <link rel="stylesheet" href="{% static 'sec.css'%}">
+    <!-- <link rel="stylesheet" href="{% static 'myscc.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'sec.css' %}">
     <link rel="shortcut icon" href="{% static 'arunkr.png' %}" type="image/x-icon">
 
-    <title>{{page}}</title>
+    <title>{{ page }}</title>
 </head>
 <body>
     <nav>
-        <div class="nav_left ">
-             
-            <img src="{% static 'left.png'%}">
+        <div class="nav_left">
+            <img src="{% static 'left.png' %}">
             hello welcome 
         </div>
 
         <div class="nav_right">
             <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'product' %}">product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account' %}">account</a>
+                </li>
+                {% if request.user.is_authenticated %}
                     <li class="nav-item">
-                     <a class="nav-link active" aria-current="page" href="{% url 'home' %}">home</a>
-                     </li>
-                     <li class="nav-item">
-                     <a class="nav-link" href="{% url 'product' %}">product</a>
-                     </li>
-                     <li class="nav-item">
-                     <a class="nav-link" href="{% url 'account' %}">Acount</a>
-                     </li>
-                     <li class="nav-item">
-                     <a class="nav-link " href="{% url 'login' %}">login</a>
-                     </li>
-                 </ul>
+                        <a class="nav-link" href="{% url 'logout' %}" type="button">logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}" type="button">login</a>
+                    </li>
+                {% endif %}
+            </ul>
         </div>
     </nav>
     {% block start %}
-
     {% endblock %}
 </body>
 </html>
